@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/adam/spd/control-of-discrete-processes/part1/build",
+  "command": "/usr/bin/c++  -I/home/adam/spd/control-of-discrete-processes/part1 -g -std=gnu++11 -o CMakeFiles/main.dir/main.cpp.o -c /home/adam/spd/control-of-discrete-processes/part1/main.cpp",
+  "file": "/home/adam/spd/control-of-discrete-processes/part1/main.cpp"
+},
+{
+  "directory": "/home/adam/spd/control-of-discrete-processes/part1/build",
+  "command": "/usr/bin/c++  -I/home/adam/spd/control-of-discrete-processes/part1 -g -std=gnu++11 -o CMakeFiles/main.dir/algorithms.cpp.o -c /home/adam/spd/control-of-discrete-processes/part1/algorithms.cpp",
+  "file": "/home/adam/spd/control-of-discrete-processes/part1/algorithms.cpp"
+}
+]

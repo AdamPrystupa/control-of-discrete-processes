@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "algorithm": "cpp",
+        "limits": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp"
+    },
+    "cmake.sourceDirectory": "/home/adam/spd/control-of-discrete-processes/part1"
+}
