@@ -1,0 +1,18 @@
+Przegląd zupełny - sprawdzenie wszystkich możliwości szeregowania zadań i wybieramy najlepszą.
+
+
+
+Instancja testowa
+ri - czas rozpoczęcia
+pi - czas zadania
+qi - czas chłodzenia
+zadanie to ułożenie zadań w sposób który wykona je wszystkie w najkrótszym czasie
+
+BEZ Q
+C(j) = max(rj,C(j-1))+pj
+
+Z Q 
+C(j) = max(rj,C(j-1))+pj+qj
+
+
+
