@@ -88,10 +88,8 @@ void findOptimalTaskOrder(std::vector<Task>& tasks) {
     std::vector<Task> bestOrder;
     int bestCmax = std::numeric_limits<int>::max();
 
-    // Start timing
     auto start = std::chrono::high_resolution_clock::now();
 
-    // Generate all permutations of tasks
     std::sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
         return a.index < b.index;
     });
@@ -106,14 +104,11 @@ void findOptimalTaskOrder(std::vector<Task>& tasks) {
         return a.index < b.index;
     }));
 
-    // End timing
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = end - start;
 
-    // Print elapsed time
     std::cout << "Time taken to find optimal order: " << elapsed.count() << " seconds\n";
 
-    // Update tasks with the best order
     tasks = bestOrder;
 }
 
@@ -172,4 +167,73 @@ void findOptimalTaskOrderWithThreads(std::vector<Task>& tasks, int numThreads) {
 
     // Update tasks with the best order
     tasks = bestOrder;
+}
+
+
+void schrage(std::vector<Task>& tasks) {
+    std::vector<Task> G;
+    std::vector<Task> N = tasks;
+    sortByRj(N);
+
+    int currentTime = 0;
+    int cmax = 0;
+
+    while (!G.empty() || !N.empty()) {
+        while (!N.empty() && N.front().rj <= currentTime) {
+            G.push_back(N.front());
+            N.erase(N.begin());
+        }
+
+        if (G.empty()) {
+            currentTime = N.front().rj;
+        } else {
+            auto it = std::max_element(G.begin(), G.end(), [](const Task& a, const Task& b) {
+                return a.qj < b.qj;
+            });
+
+            Task task = *it;
+            G.erase(it);
+            currentTime += task.pj;
+            cmax = std::max(cmax, currentTime + task.qj);
+        }
+    }
+
+    std::cout << "Cmax: " << cmax << "\n";
+}
+
+
+void schrageWithHeap(std::vector<Task>& tasks) {
+    std::vector<Task> G;
+    std::vector<Task> N = tasks;
+    sortByRj(N);
+
+    int currentTime = 0;
+    int cmax = 0;
+
+    auto compareQj = [](const Task& a, const Task& b) {
+        return a.qj < b.qj;
+    };
+
+    std::make_heap(N.begin(), N.end(), compareQj);
+
+    while (!G.empty() || !N.empty()) {
+        while (!N.empty() && N.front().rj <= currentTime) {
+            G.push_back(N.front());
+            std::push_heap(G.begin(), G.end(), compareQj);
+            N.erase(N.begin());
+            std::make_heap(N.begin(), N.end(), compareQj);
+        }
+
+        if (G.empty()) {
+            currentTime = N.front().rj;
+        } else {
+            std::pop_heap(G.begin(), G.end(), compareQj);
+            Task task = G.back();
+            G.pop_back();
+            currentTime += task.pj;
+            cmax = std::max(cmax, currentTime + task.qj);
+        }
+    }
+
+    std::cout << "Cmax: " << cmax << "\n";
 }

@@ -8,15 +8,18 @@ int main() {
     std::vector<Task> tasks;
     int currentTime = 0;
     int cmax = 0;
-    loadTasksFromFile("tests/test.dat", tasks);
+    loadTasksFromFile("tests/SCHRAGE2.dat", tasks);
 
     // sortByQj(tasks, true);
     // optimizeGroupsByCmax(tasks, false);
     // printTasks(tasks);
-    findOptimalTaskOrder(tasks);
+    // findOptimalTaskOrderWithThreads(tasks,8);
     //findOptimalTaskOrderWithThreads(tasks, 8);
-    cmax = calculateCmax(tasks);
-    std::cout << "Cmax: " << cmax << "\n";
+    // cmax = calculateCmax(tasks);
+    schrage(tasks);
+    // schrageWithHeap(tasks);
+    // std::cout << "Cmax: " << cmax << "\n";
+    //printTasks(tasks);
     
 
 
