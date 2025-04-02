@@ -1,0 +1,6 @@
+# ninja log v6
+3	495	7653209934524356	CMakeFiles/main.dir/main.cpp.obj	437947beebe8aa94
+8	959	7653209934583155	CMakeFiles/main.dir/algorithms.cpp.obj	2fa12a706b21d507
+960	1256	7653209944092029	main.exe	df6feecfca1d5363
+6	455	7653210213394315	CMakeFiles/main.dir/main.cpp.obj	437947beebe8aa94
+456	590	7653210217882302	main.exe	df6feecfca1d5363

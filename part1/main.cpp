@@ -8,7 +8,7 @@ int main() {
     std::vector<Task> tasks;
     int currentTime = 0;
     int cmax = 0;
-    loadTasksFromFile("tests/SCHRAGE2.dat", tasks);
+    loadTasksFromFile("../tests/SCHRAGE2.dat", tasks);
 
     // sortByQj(tasks, true);
     // optimizeGroupsByCmax(tasks, false);
