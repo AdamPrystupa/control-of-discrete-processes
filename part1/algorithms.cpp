@@ -236,3 +236,19 @@ void schrageWithHeap(std::vector<Task>& tasks) {
 
     std::cout << "Cmax: " << cmax << "\n";
 }
+
+void ownAlgorithm(std::vector<Task>& tasks) {
+    std::vector<Task> buffer = tasks; // Tworzenie bufora
+
+    std::sort(buffer.begin(), buffer.end(), [](const Task& a, const Task& b) {
+        int sumA = a.rj + a.qj;
+        int sumB = b.rj + b.qj;
+
+        if (sumA == sumB) {
+            return a.pj < b.pj; // Jeśli sumy są równe, sortuj według pj
+        }
+        return sumA < sumB; // Sortuj według sumy rj + qj
+    });
+
+    tasks = buffer; // Nadpisanie oryginalnego wektora
+}

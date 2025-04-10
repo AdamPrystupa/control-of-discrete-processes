@@ -30,6 +30,6 @@ void findOptimalTaskOrder(std::vector<Task>& tasks);
 void findOptimalTaskOrderWithThreads(std::vector<Task>& tasks, int numThreads);
 void schrage(std::vector<Task>& tasks);
 void schrageWithHeap(std::vector<Task>& tasks);
-
+void ownAlgorithm(std::vector<Task>& tasks);
 
 #endif // ALGORITHMS_HPP
